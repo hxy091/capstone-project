@@ -1,5 +1,4 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 import connectDB from './config/db.js';
@@ -8,8 +7,6 @@ import projectRoutes from './routes/projects.js';
 import blogRoutes from './routes/blog.js';
 import contactRoutes from './routes/contact.js';
 import { notFound, errorHandler } from './middleware/error.js';
-
-dotenv.config();
 
 connectDB();
 
@@ -31,6 +28,10 @@ app.use('/api/contact', contactRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// Only listen when run directly (local dev), not when imported by Vercel
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default app;
