@@ -8,12 +8,12 @@ A production-ready full-stack personal portfolio website built with:
 
 - **Backend:** Node.js, Express, MongoDB Atlas (Mongoose), JWT authentication, bcrypt, helmet
 - **Frontend:** React 18, Vite, React Router, Context API, responsive CSS
-- **Deployment:** Backend on Render, Frontend on Vercel/Netlify
+- **Deployment:** Both frontend and backend API on Vercel (serverless functions)
 
 ## Live Demo
 
-- **Frontend:** https://your-frontend.vercel.app
-- **Backend API:** https://your-backend.onrender.com
+- **Frontend:** https://capstone-project-jswq.vercel.app
+- **Backend API:** https://capstone-project-jswq.vercel.app/api
 
 ## Project Structure
 

@@ -7,8 +7,12 @@ import projectRoutes from './routes/projects.js';
 import blogRoutes from './routes/blog.js';
 import contactRoutes from './routes/contact.js';
 import { notFound, errorHandler } from './middleware/error.js';
+import dotenv from 'dotenv';
 
-connectDB();
+dotenv.config();
+connectDB().catch((error) => {
+  console.error('MongoDB connection deferred:', error.message);
+});
 
 const app = express();
 
